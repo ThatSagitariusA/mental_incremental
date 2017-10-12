@@ -52,7 +52,7 @@ function buyAssistant(){
         console.log(assistantNum);
         research = research - assistantCost;                                   //removes the research spent
         spentResearch += assistantCost ;                                   //updates research spent                        
-        document.getElementsByClassName("assistantNum").innerHTML = assistantNum;  //updates the number of assistants for the user
+        document.getElementById("assistantNum").innerHTML = assistantNum;  //updates the number of assistants for the user
         document.getElementById("research").innerHTML = research;  //updates the number of research for the user
         //document.getElementById("spentResearch").innerHTML = spentResearch;  //updates research spent for the user
     };
