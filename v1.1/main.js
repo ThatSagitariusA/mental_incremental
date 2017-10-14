@@ -3,25 +3,36 @@ var assistantNum = 0;
 var nanoResearch = 0;
 var spentResearch = 0;
 var statsIsOpen = false;
+var nextAssistantCost = 10;
 
-function save(research, assistantNum, nanoResearch){
+function save(){
     var save = {
         research: research,
         assistantNum: assistantNum,
+        nextAssistantCost: nextAssistantCost,
         nanoResearch: nanoResearch
     }
     localStorage.setItem("save", JSON.stringify(save));
+    
 }
 function load(){
     var savegame = JSON.parse(localStorage.getItem("save"));
     if(typeof savegame.research !== undefined){
-        research = savegame.research
+        research = savegame.research;
+        document.getElementById("research").innerHTML = research;
     }
     if(typeof savegame.assistantNum !== undefined){
-        assistantNum = savegame.assistantNum
+        assistantNum = savegame.assistantNum;
+        document.getElementById("assistantNum").innerHTML = assistantNum;
+    }
+    if(typeof savegame.nextAssistantCost !== undefined){
+        nextAssistantCost = savegame.nextAssistantCost;
+        document.getElementById("assistantCost").innerHTML = nextAssistantCost;
+    }else {
+        nextAssistantCost = 10;
     }
     if(typeof savegame.nanoResearch !== undefined){
-        nanoResearch = savegame.nanoResearch
+        nanoResearch = savegame.nanoResearch;
     }
 }
 function deleteSave(){
@@ -56,23 +67,9 @@ function buyAssistant(){
         document.getElementById("research").innerHTML = research;  //updates the number of research for the user
         //document.getElementById("spentResearch").innerHTML = spentResearch;  //updates research spent for the user
     };
-    var nextAssistantCost = Math.floor(10 * Math.pow(1.1,assistantNum));       //works out the cost of the next assistant
+    nextAssistantCost = Math.floor(10 * Math.pow(1.1,assistantNum));       //works out the cost of the next assistant
     document.getElementById("assistantCost").innerHTML = nextAssistantCost;  //updates the assistant cost for the user
 };
-/*function statButton(){
-    if(statsIsOpen === false){
-        statsIsOpen = true;
-        document.getElementById("stats").innerHTML = 
-            <span><p><strong>STATS</strong></p>
-            <p>Total Research: <span id="researchMade">0</span></p>
-            <p>Total Research Spent: <span id="spentResearch">0</span></p>
-            <p>Assistants Hired: <span class="assistantNum">0</span></p></span>;
-    }else {
-        statsIsOpen = false;
-    }
-
-
-}*/
 window.setInterval(function(){
 
     researchClick(assistantNum);
