@@ -4,6 +4,7 @@ var nanoResearch = 0;
 var spentResearch = 0;
 var statsIsOpen = false;
 var nextAssistantCost = 10;
+var saveTimer = 0;
 
 function save(){
     var save = {
@@ -73,5 +74,10 @@ function buyAssistant(){
 window.setInterval(function(){
 
     researchClick(assistantNum);
+    if (saveTimer >= 300){
+        save();
+    }else {
+        saveTimer += 1;
+    }
 
 }, 1000)
