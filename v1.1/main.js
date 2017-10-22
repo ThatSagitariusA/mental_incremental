@@ -14,7 +14,7 @@ function save(){
         nanoResearch: nanoResearch
     }
     localStorage.setItem("save", JSON.stringify(save));
-    
+    ga('send', 'event', 'MentalIncremental', 'Save');
 }
 function load(){
     var savegame = JSON.parse(localStorage.getItem("save"));
