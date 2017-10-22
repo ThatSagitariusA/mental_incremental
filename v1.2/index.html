@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108136853-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-108136853-1');
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="interface.css" />
+	
+  </head>
+  <body>
+    <header>
+      <div class="header"> Reddit </div>
+      <div class="header"> Github </div>
+      <div class="header"> About </div>
+      <div class="header"> Other Stuff </div>
+	  </header>
+    <input type="button" class="brain" onClick="researchClick(1)" title="Click to research!" />
+
+	
+    <p>Research: <span id="research">0</span></p>
+    
+    <div>
+      <p>Research Generators</p>
+      <div onclick="buyAssistant()" id="buyAssistant" title="Buy Assistant"></div>
+      <p>Assistants: <span id="assistantNum">0</span></p>
+      <p>Cost: <span id="assistantCost">10</span></p>
+    </div>
+
+    <div id="stats">
+      <div class="header" class="storeBtn" onclick="save()">Save</div>
+      <div class="header" class="storeBtn" onclick="load()">Load</div>  
+    </div>
+    
+    <script type="text/javascript" src="main.js"></script>
+  </body>
